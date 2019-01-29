@@ -1,0 +1,14 @@
+spring:
+  application:
+    name:test-demo
+  cloud:
+    config:
+      server:
+        git:
+          uri:https://gitee.com/lincheng123/do.git   #gitee仓库地址，也可以是其他如gitlab
+        username:   llc_0916@163.com    #用户名
+        password:   li19990916          #密码
+
+
+  server:
+    port: 9001

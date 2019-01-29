@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.mapper.AppMessageMapper" >
+
+    <resultMap id="BaseResultMap" type="com.example.demo.entity.AppMessage" >
+        <id column="id" property="id" jdbcType="VARCHAR" />
+        <result column="message" property="message" jdbcType="VARCHAR" />
+        <result column="senddate" property="senddate" jdbcType="TIMESTAMP" />
+    </resultMap>
+
+
+
+    <select id="findAll" resultMap="BaseResultMap">
+    select
+            id, message, senddate
+    from appmessage
+     order by senddate asc
+  </select>
+
+
+</mapper>
