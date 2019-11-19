@@ -15,7 +15,7 @@
     select
             id, message, senddate
     from appmessage
-     order by senddate asc
+     order by id asc
   </select>
 
 

@@ -5,19 +5,21 @@ import java.util.List;
 import com.example.demo.entity.AppMessage;
 import com.example.demo.service.AppMessageService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.boot.configurationprocessor.json.JSONException;
+import org.springframework.boot.configurationprocessor.json.JSONObject;
+import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletRequest;
 
 
 @RestController
-@RequestMapping("/appmessage")
+@RequestMapping("/test")
 public class APPMessageController {
 
     @Autowired
     private AppMessageService service;
+
+
 
 //    @RequestMapping("/getThree")
 //    public List<AppMessage> getThreeForMessage(){
@@ -37,6 +39,25 @@ public class APPMessageController {
 //            }
     //    }
         return list;
+    }
+
+    @GetMapping("getHelloWorld")
+    public String getHelloWorld(HttpServletRequest request){
+        //获取IP地址
+        String ipAddress =IpUtil.getIpAddr(request);
+        AppMessage app=new AppMessage();
+        app.setId("1");
+        app.setMessage("你好");
+        JSONObject jsonObject=new JSONObject();
+        try {
+            jsonObject.put("id",1);
+            jsonObject.put("name","离开");
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        return  jsonObject.toString();
     }
 
 //    @RequestMapping("/getByID")

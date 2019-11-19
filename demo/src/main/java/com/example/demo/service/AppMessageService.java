@@ -9,12 +9,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
-
-@Service(value = "AppMessageMapper")
+@Service
 public class AppMessageService {
 
-    @Autowired(required = false)
+    @Autowired(required=true)
     private AppMessageMapper mapper;
 
 //    public List<AppMessage> getMessage(){
